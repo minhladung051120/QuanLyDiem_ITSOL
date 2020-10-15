@@ -3,6 +3,7 @@ import { ServicesService } from '../../services.service';
 import { Router } from '@angular/router';
 import { getLopHoc } from '../../model/getLopHoc';
 import * as fileSaver from 'file-saver';
+import { lopHoc } from 'src/app/model/lopHoc';
 
 @Component({
   selector: 'app-daotao-qllh',
@@ -12,6 +13,7 @@ import * as fileSaver from 'file-saver';
 export class DaotaoQllhComponent implements OnInit {
   date : Date;
   lophocs: getLopHoc[];
+  lophoc: lopHoc;
   page = 1;
   pageSize = 5;
   searchText;
@@ -34,10 +36,22 @@ export class DaotaoQllhComponent implements OnInit {
         this.deleteLopHoc(name);
     }
   }
+  getLopHocId(malop) {
+    this.servicesService.getLopHocId(malop).subscribe((data) => {
+      console.log(data);
+      this.lophoc = data;
+    });
+  }
   deleteLopHoc(maLop) {
-    this.servicesService.deleteLopHoc(maLop).subscribe(response =>
-     {this.lophocs = this.lophocs.filter(lophoc => lophoc.maLop != maLop);
- })
+   this.getLopHocId(maLop)
+    this.servicesService.deleteLopHoc(maLop,this.lophoc).subscribe(
+      data => {     
+        this.router.navigate(['/daotao/daotao-qllh']);
+       },
+       err => {
+        console.log(err)
+       },
+    )
 }
 exportExcel(){
   this.servicesService.exportExcel1(this.date).subscribe(

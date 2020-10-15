@@ -27,11 +27,15 @@ export class EditMonhocComponent implements OnInit {
 
   save() {
     this.servicesService.updateMonHoc(this.monhoc).subscribe(
-      (data) => console.log(data),
+      (data) => {
+        console.log(data); 
+        this.gotoList();
+      },
       (error) => console.log(error),
+
     );
     this.monhoc = new monHoc();
-    this.gotoList();
+    
   }
 
   gotoList() {

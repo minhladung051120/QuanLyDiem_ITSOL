@@ -1,6 +1,9 @@
+import {GiangVien} from 'src/app/model/giangvien'
+import { monHoc } from './monHoc';
 export class lopHoc{
     maLop:String;
     tenLop:String;
-    maGv:String;
-    maMon:String;
+    giangvien: GiangVien;
+    maMonHoc:monHoc;
+    isAlive: boolean;
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { lopHoc } from './model/lopHoc';
 
 @Injectable({
   providedIn: 'root'
@@ -50,8 +51,8 @@ export class ServicesService {
     return this.http.get(this.baseUrl+"getKyHoc/"+maKy);
   }
 
-  getLopHocId(maLop : number):Observable<any>{
-    return this.http.get(this.baseUrl+"getLopHocId/"+maLop);
+  getLopHocId(maLop : string):Observable<any>{
+    return this.http.get(this.baseUrl+`getLopHocId/${maLop}`);
   }
 
   getMonHoc(){
@@ -68,7 +69,7 @@ export class ServicesService {
   }
 
   getLopHoc(){
-    return this.http.get(this.baseUrl+"getLopHoc");
+    return this.http.get(this.baseUrl+"getLopHocByAlive");
   }
 
   getSinhVien(){
@@ -123,16 +124,18 @@ export class ServicesService {
     return this.http.delete(this.baseUrl+"monHoc/"+monHoc);
   }
 
-  deleteLopHoc(lopHoc : number){
-    return this.http.delete(this.baseUrl+"lopHoc/"+lopHoc);
+
+  public deleteLopHoc(maLop:string, lopHoc: lopHoc): Observable<any>{
+    return this.http.put<any>(this.baseUrl + `updateAlive/${maLop}`, lopHoc);
   }
 
   updateKyHoc(kyHoc: Object): Observable<Object>{
     return this.http.put(this.baseUrl+"updateKyHoc",kyHoc);
   }
 
-  updateLopHoc(kyHoc: Object): Observable<Object>{
-    return this.http.put(this.baseUrl+"updateLopHoc",kyHoc);
+
+  public updateLopHoc(id:string, lopHoc: lopHoc): Observable<any>{
+    return this.http.put<any>(this.baseUrl + `updateLopHoc/${id}`, lopHoc);
   }
 
   searchKyHoc(tenKy : number){

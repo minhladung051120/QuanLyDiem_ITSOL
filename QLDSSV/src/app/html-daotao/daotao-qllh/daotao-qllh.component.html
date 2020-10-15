@@ -63,12 +63,13 @@
         <tbody *ngFor="let lophoc of lophocs|filter:searchText |slice: (page-1) * pageSize:(page-1) * pageSize + pageSize;let i = index">
           <tr>
             <th scope="row">{{i+1}}</th>
-            <td>{{lophoc.tenKy}}</td>
+            <td>{{lophoc.maMonHoc.maKy.tenKy}}</td>
             <td>{{lophoc.maLop}}</td>
             <td>{{lophoc.tenLop}}</td>
-            <td>{{lophoc.tenMon}}</td>
-            <td>{{lophoc.maGv}}</td>
-            <td>{{lophoc.hoTen}}</td>
+            <td>{{lophoc.maMonHoc.tenMon}}</td>
+            <td>{{lophoc.giangvien.maGv}}</td>
+            <td>{{lophoc.giangvien.taikhoan.hoTen}}</td>
+            
             <td><button class="btn btn-success" routerLink="/daotao/edit-lophoc/{{lophoc.maLop}}" >Sửa</button></td>
             <td><button class="btn btn-danger" (click)="clickMethod(lophoc.maLop)">Xóa</button></td>
           </tr>

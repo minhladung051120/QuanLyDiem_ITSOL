@@ -26,11 +26,14 @@
         <div class="form-row mb-2">
           <div class="col-md-6">
             <label for="validate03">Ngày bắt đầu</label>
-            <input type="text" class="form-control" id="validate03" required [(ngModel)]="kyhoc.thoiGian" name="thoiGian">
+            <!-- <input type="text" class="form-control" id="validate03" required [(ngModel)]="kyhoc.thoiGian" name="thoiGian"> -->
+            <input type="date" class="form-control" id="validate03" #mydate required [(ngModel)]="kyhoc.thoiGian" name="thoiGian">
           </div>
           <div class="col-md-6 ">
             <label for="validate04">Ngày kết thúc</label>
-            <input type="text" class="form-control" id="validate04" required [(ngModel)]="kyhoc.thoiGianKt" name="thoiGianKt">
+            <!-- <input type="text" class="form-control" id="validate04" required [(ngModel)]="kyhoc.thoiGianKt" name="thoiGianKt"> -->
+            <input type="date" class="form-control" id="validate04" #mydate required [(ngModel)]="kyhoc.thoiGianKt" name="thoiGianKt">
+
           </div>
         </div>
         

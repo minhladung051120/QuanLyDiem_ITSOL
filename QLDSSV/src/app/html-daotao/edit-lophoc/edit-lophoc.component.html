@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QLDSV</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body>
+
   <div class="row justify-content-center align-items-center p-3">
     
     <div class="col-md-11">
@@ -28,13 +20,27 @@
             </div>
             <div class="form-row mb-2">
               <div class="col-md-6">
-                <label for="validate01">Mã giảng viên </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maGv" name="maGv">
+                <label>Tên giảng viên</label>
+												<select [(ngModel)]="gvSelected" (ngModelChange)="onGvSelected($event)" class="form-control select" name="giangvien">
+                        <option [ngValue]="null" selected>Lựa chọn</option>
+                          <option *ngFor="let gv of giangvien" [ngValue]="gv" >{{gv.taikhoan.hoTen}}</option>								
+												</select>
               </div>
               <div class="col-md-6">
-                <label for="validate01">Mã môn </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maMon" name="maMon">
+                <label>Mã môn học</label>
+												<select [(ngModel)]="mhSelected" (ngModelChange)="onMhSelected($event)"  class="form-control select" name="monhoc">
+                        <option selected>Lựa chọn</option>
+                        <option *ngFor="let mh of monhoc" >{{mh.tenMon}}</option>								
+												</select>
               </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="inputState">môn học</label>
+              <select [(ngModel)]="mhSelected"  class="form-control select" (ngModelChange)="onMhSelected($event)">
+                <option  selected>{{lophoc.maMonHoc.tenMon}}</option>
+                <option *ngFor="let mh of monhoc" >{{mh.tenMon}}</option>								
+                </select>
             </div>
 
   
@@ -53,8 +59,3 @@
   
      
   </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</html>

@@ -15,6 +15,7 @@ export class DaotaothemmonhocComponent implements OnInit {
     tenmon: new FormControl('', Validators.required),
     kyhoc: new FormControl('', Validators.required)
   })
+  
   monhoc: monHoc = new monHoc();
   constructor(private servicesService: ServicesService,
     private router: Router) { }

@@ -3,7 +3,7 @@ import { taiKhoanDb } from '../../model/taiKhoanDb';
 import { Router } from '@angular/router';
 import { ServicesService } from '../../services.service';
 import { FormGroup,  FormBuilder,  Validators ,FormControl } from '@angular/forms';
-@Component({
+@Component({ 
   selector: 'app-daotaothemtkgv',
   templateUrl: './daotaothemtkgv.component.html',
   styleUrls: ['./daotaothemtkgv.component.css']

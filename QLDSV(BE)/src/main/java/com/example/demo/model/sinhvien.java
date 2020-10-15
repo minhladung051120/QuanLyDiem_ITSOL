@@ -23,7 +23,16 @@ public class sinhvien {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "maTk")
 	private taikhoan taikhoan;
-	
+	@Column(name = "isAlive")
+	private boolean isAlive;
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+
 	public List<bangdiem> getBangdiem() {
 		return bangdiem;
 	}

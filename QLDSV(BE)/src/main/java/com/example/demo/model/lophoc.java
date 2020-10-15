@@ -20,86 +20,112 @@ public class lophoc {
 	@OneToMany(targetEntity = bangdiem.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "maLop", referencedColumnName = "maLop")
 	private List<bangdiem> bangdiem;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "maGv", insertable = false, updatable = false)
-	private giangvien giangvien;
-	@Column(name = "maGv")
-	private String maGv;
-	@Column(name = "maMon")
-	private String maMon;
-
 	
-	public String getMaGv() {
-		return maGv;
-	}
+	@ManyToOne
+	@JoinColumn(name = "maGv")
+	private giangvien giangvien;
+	
+	@ManyToOne
+	@JoinColumn(name = "maMon")
+	private monhoc maMonHoc;
+	
+	@Column(name = "isAlive")
+	private boolean isAlive;
+	
 
-	public void setMaGv(String maGv) {
-		this.maGv = maGv;
-	}
-
-	public giangvien getGiangvien() {
-		return giangvien;
-	}
-
-	public void setGiangvien(giangvien giangvien) {
-		this.giangvien = giangvien;
-	}
-
-	public String getMaMon() {
-		return maMon;
-	}
-
-	public void setMaMon(String maMon) {
-		this.maMon = maMon;
-	}
-
-
-
-	public List<bangdiem> getBangdiem() {
-		return bangdiem;
-	}
-
-	public void setBangdiem(List<bangdiem> bangdiem) {
-		this.bangdiem = bangdiem;
-	}
 
 	public lophoc() {
-
-	}
-
-
-
-	public lophoc(String maLop, String tenLop, String maMon) {
 		super();
-		this.maLop = maLop;
-		this.tenLop = tenLop;
-		this.maMon = maMon;
 	}
-	
+
+
+
 	public lophoc(String maLop, String tenLop, List<com.example.demo.model.bangdiem> bangdiem,
-			com.example.demo.model.giangvien giangvien, String maGv, String maMon) {
+			com.example.demo.model.giangvien giangvien, monhoc maMonHoc, boolean isAlive) {
 		super();
 		this.maLop = maLop;
 		this.tenLop = tenLop;
 		this.bangdiem = bangdiem;
 		this.giangvien = giangvien;
-		this.maGv = maGv;
-		this.maMon = maMon;
+		this.maMonHoc = maMonHoc;
+		this.isAlive = isAlive;
 	}
+
+
 
 	public String getMaLop() {
 		return maLop;
 	}
 
+
+
 	public void setMaLop(String maLop) {
 		this.maLop = maLop;
 	}
+
+
 
 	public String getTenLop() {
 		return tenLop;
 	}
 
+
+
 	public void setTenLop(String tenLop) {
 		this.tenLop = tenLop;
 	}
+
+
+
+//	public List<bangdiem> getBangdiem() {
+//		return bangdiem;
+//	}
+
+
+
+	public void setBangdiem(List<bangdiem> bangdiem) {
+		this.bangdiem = bangdiem;
+	}
+
+
+
+	public giangvien getGiangvien() {
+		return giangvien;
+	}
+
+
+
+	public void setGiangvien(giangvien giangvien) {
+		this.giangvien = giangvien;
+	}
+
+
+
+
+
+
+
+	public monhoc getMaMonHoc() {
+		return maMonHoc;
+	}
+
+
+
+	public void setMaMonHoc(monhoc maMonHoc) {
+		this.maMonHoc = maMonHoc;
+	}
+
+
+
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+
+	
 }

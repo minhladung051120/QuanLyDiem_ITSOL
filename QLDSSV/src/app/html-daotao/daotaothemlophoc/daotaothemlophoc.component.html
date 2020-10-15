@@ -8,18 +8,18 @@
 </head>
 <body>
   <div class="row justify-content-center align-items-center p-3">
-    
+     
     <div class="col-md-11">
       <div class="col-md-12"> 
         <div class="border border-dark p-2">
           <div class="p-3 mb-2 bg-secondary text-white mb-5">
             <a class="text-center"><h3>Thêm mới lớp học</h3></a>
         </div>
-      <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+      <form (ngSubmit)="onSubmit()"  >
           <div class="form-row mb-2">
               <div class="col-md-6">
                 <label for="validate01">Mã lớp </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maLop" name="maLop" formControlName="malop" [ngClass]="{'is-invalid':form.get('malop').touched && form.get('malop').invalid}"
+                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maLop" name="maLop" 
                 required/>
                  <div class="invalid-feedback">
                    <div>Chưa nhập mã lớp</div>
@@ -27,7 +27,7 @@
               </div>
               <div class="col-md-6">
                 <label for="validate01">Tên lớp </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.tenLop" name="tenLop"formControlName="tenlop" [ngClass]="{'is-invalid':form.get('tenlop').touched && form.get('tenlop').invalid}"
+                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.tenLop" name="tenLop"
                 required/>
                  <div class="invalid-feedback">
                    <div>Chưa nhập tên lớp</div>
@@ -36,20 +36,18 @@
             </div>
             <div class="form-row mb-2">
               <div class="col-md-6">
-                <label for="validate01">Mã giảng viên </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maGv" name="maGv" formControlName="magiangvien" [ngClass]="{'is-invalid':form.get('magiangvien').touched && form.get('magiangvien').invalid}"
-                required/>
-                 <div class="invalid-feedback">
-                   <div>Chưa nhập mã giảng viên</div>
-                 </div>
+                <label>Tên giảng viên</label>
+												<select [(ngModel)]="gvSelected" (ngModelChange)="onGvSelected($event)" class="form-control select" name="giangvien">
+                        <option [ngValue]="null" selected>Lựa chọn</option>
+                          <option *ngFor="let gv of giangvien" [ngValue]="gv" >{{gv.taikhoan.hoTen}}</option>								
+												</select>
               </div>
               <div class="col-md-6">
-                <label for="validate01">Mã môn </label>
-                <input type="text" class="form-control" id="validate01" required [(ngModel)]="lophoc.maMon" name="maMon" formControlName="mamon" [ngClass]="{'is-invalid':form.get('mamon').touched && form.get('mamon').invalid}"
-                required/>
-                 <div class="invalid-feedback">
-                   <div>Chưa nhập mã môn</div>
-                 </div>
+                <label>Mã môn học</label>
+												<select [(ngModel)]="mhSelected" (ngModelChange)="onMhSelected($event)"  class="form-control select" name="monhoc">
+                        <option [ngValue]="null" selected>Lựa chọn</option>
+                          <option *ngFor="let mh of monhoc" [ngValue]="mh" >{{mh.maMon}}</option>								
+												</select>
               </div>
             </div>
 

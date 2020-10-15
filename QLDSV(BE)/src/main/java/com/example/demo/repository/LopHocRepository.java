@@ -12,4 +12,6 @@ import com.example.demo.model.lophoc;
 public interface LopHocRepository extends JpaRepository<lophoc, String> {
 	@Query("SELECT new com.example.demo.dto.LopHoc(k.tenKy,m.tenMon,l.maLop,l.tenLop,g.maGv,t.hoTen) FROM kyhoc k JOIN k.monhocs m JOIN m.lophocs l JOIN l.giangvien g JOIN g.taikhoan t")
 	 public List<LopHoc> getLopHoc();
+	boolean existsById(String id);
+	public List<lophoc> findAllByisAlive(boolean bl);
 }

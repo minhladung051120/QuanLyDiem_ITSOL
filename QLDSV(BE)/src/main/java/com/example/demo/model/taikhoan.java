@@ -119,17 +119,17 @@ public class taikhoan {
 		this.chucVu = chucVu;
 	}
 
-	public List<giangvien> getGiangviens() {
-		return giangviens;
-	}
+//	public List<giangvien> getGiangviens() {
+//		return giangviens;
+//	}
 
 	public void setGiangviens(List<giangvien> giangviens) {
 		this.giangviens = giangviens;
 	}
 
-	public List<sinhvien> getSinhviens() {
-		return sinhviens;
-	}
+//	public List<sinhvien> getSinhviens() {
+//		return sinhviens;
+//	}
 
 	public void setSinhviens(List<sinhvien> sinhviens) {
 		this.sinhviens = sinhviens;

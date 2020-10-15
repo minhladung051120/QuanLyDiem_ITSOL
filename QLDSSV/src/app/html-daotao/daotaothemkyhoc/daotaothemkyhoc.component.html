@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QLDSV</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body>
   <div class="row justify-content-center align-items-center p-3">  
     <div class="col-md-11">
       <div class="col-md-12"> 
@@ -30,26 +21,26 @@
               required/>
                <div class="invalid-feedback">
                  <div>Chưa nhập tên kỳ</div>
-               </div>
+               </div> 
             </div>
           </div>
 
         <div class="form-row mb-2">
           <div class="col-md-6">
             <label for="validate03">Ngày bắt đầu</label>
-            <input type="text" class="form-control" id="validate03" [(ngModel)]="kyhoc.thoiGian" name="thoiGian" formControlName="ngaybatdau" [ngClass]="{'is-invalid':form.get('ngaybatdau').touched && form.get('ngaybatdau').invalid}"
+            <input type="date" #mydate class="form-control" id="validate03" [(ngModel)]="kyhoc.thoiGian" name="thoiGian" formControlName="ngaybatdau" [ngClass]="{'is-invalid':form.get('ngaybatdau').touched && form.get('ngaybatdau').invalid}"
             required/>
              <div class="invalid-feedback">
-               <div>Chưa nhập ngày bắt đầu</div>
+               <div>Chưa nhập/chọn ngày bắt đầu</div>
              </div>
           </div>
         
           <div class="col-md-6">
             <label for="validate03">Ngày kết thúc</label>
-            <input type="text" class="form-control" id="validate03" required [(ngModel)]="kyhoc.thoiGianKt" name="thoiGianKt" formControlName="ngayketthuc" [ngClass]="{'is-invalid':form.get('ngayketthuc').touched && form.get('ngayketthuc').invalid}"
+            <input type="date" #mydate class="form-control" id="validate03" required [(ngModel)]="kyhoc.thoiGianKt" name="thoiGianKt" formControlName="ngayketthuc" [ngClass]="{'is-invalid':form.get('ngayketthuc').touched && form.get('ngayketthuc').invalid}"
             required/>
              <div class="invalid-feedback">
-               <div>Chưa nhập ngày kết thúc</div>
+               <div>Chưa nhập/chọn ngày kết thúc</div>
              </div>
         </div>
       </div>
@@ -66,8 +57,3 @@
 </div>
 </div>
 </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</html>
