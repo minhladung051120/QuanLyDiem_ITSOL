@@ -1,0 +1,47 @@
+<app-trangchu></app-trangchu>
+<div *ngIf='authority == "daotao"'> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+          <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+        </svg>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/daotao/bangtin">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/daotao/daotao-qltk">Quản lý tài khoản</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/daotao/daotao-qlkyhoc" >Quản lý kỳ học</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/daotao/daotao-qlmh" >Quản lý môn học</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Quản lý lớp học
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/daotao/daotao-qllh">Quản lý lớp học</a>
+                <a class="dropdown-item" routerLink="/daotao/danhsach-sv">Danh sách sinh viên</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/daotao/daotao-qldiem" >Quản lý điểm</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<router-outlet></router-outlet>
+</div>
+<ul class="nav navbar-nav" routerLinkActive="active">
+  <li *ngIf='authority != "daotao"' class="nav-item">
+    {{errorMessage}}: Bạn không được quyền truy cập vào đây
+    <a class="nav-link" routerLink="/home">click vào đây để về trang chủ</a>
+  </li>
+</ul>

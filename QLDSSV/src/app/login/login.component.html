@@ -1,0 +1,56 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Đăng nhập</label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Quên mật khẩu</label>
+		<form class="login-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Tài khoản :</label>
+					<input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+            required />
+            <div *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required">Username is required</div>
+            </div>
+				</div>
+				<div class="group">
+					<label for="password" class="label">Mật khẩu :</label>
+					<input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+            required minlength="6" />
+          <div *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="group">
+                            <input type="button" class="button" value="Trang chủ" routerLink="/home">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="group">
+                            <input type="submit" class="button" value="Đăng nhập">
+                            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                              Login failed: {{errorMessage}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="hr"></div>
+			</div>
+			<div class="for-pwd-htm">
+				<div class="group">
+					<label for="user" class="label">Tài khoản :</label>
+					<input id="user" type="text" class="input" placeholder="Mã sinh viên">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Lấy lại mật khẩu">
+				</div>
+				<div class="hr"></div>
+			</div>
+		</form>
+	</div>
+</div> 

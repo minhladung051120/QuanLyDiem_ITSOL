@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QLDSV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row p-3">
+
+        <div class="col-6 px-4">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Tìm kiếm :</label>
+                <div class="col-sm-6">
+                  <input class="form-control" placeholder="Mã môn" name="search" type="text" autocomplete="off" required>
+                  <input type="submit" class="btn btn-primary mt-2 mr-3" value="Tìm kiếm">
+                  <input type="button" class="btn btn-primary mt-2 mr-3" value="ALL">
+                </div>
+              </div>
+          </div>
+
+    </div>
+</div>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Mã môn</th>
+            <th scope="col">Tên môn</th>
+            <th scope="col">Mã lớp</th>
+            <th scope="col">Mã kỳ</th>
+            <th scope="col">Điểm trung bình</th>
+            <th scope="col">Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let getLopHocBySv of getLopHocBySvs;let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{getLopHocBySv.maMon}}</td>
+            <td><a routerLink="/sinhvien/sinhvien-bangdiem/{{getLopHocBySv.maLop}}">{{getLopHocBySv.tenMon}}</a></td>
+            <td>{{getLopHocBySv.maLop}}</td>
+            <td>{{getLopHocBySv.maKy}}</td>
+            <td>{{getLopHocBySv.diemTb}}</td>
+            <td>{{getLopHocBySv.trangThai}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </html>
