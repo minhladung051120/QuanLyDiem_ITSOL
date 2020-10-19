@@ -107,6 +107,7 @@ public class lophocController {
 	@PutMapping("/updateAlive/{maLop}")
 	public ResponseEntity<?> updateAlive(@PathVariable("maLop")String maLop, @RequestBody lophoc lophoc){
 		System.out.println(maLop);
+
 		
 		lophoc lop = lopHocRepository.getOne(maLop);
 		lop.setAlive(false);

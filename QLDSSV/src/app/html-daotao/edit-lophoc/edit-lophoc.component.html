@@ -27,21 +27,21 @@
 												</select>
               </div>
               <div class="col-md-6">
-                <label>Mã môn học</label>
+                <label>Tên môn học</label>
 												<select [(ngModel)]="mhSelected" (ngModelChange)="onMhSelected($event)"  class="form-control select" name="monhoc">
-                        <option selected>Lựa chọn</option>
+                        <option [ngValue]="null" selected>Lựa chọn</option>
                         <option *ngFor="let mh of monhoc" >{{mh.tenMon}}</option>								
 												</select>
               </div>
             </div>
 
-            <div class="form-group col-md-4">
+            <!-- <div class="form-group col-md-4">
               <label for="inputState">môn học</label>
               <select [(ngModel)]="mhSelected"  class="form-control select" (ngModelChange)="onMhSelected($event)">
                 <option  selected>{{lophoc.maMonHoc.tenMon}}</option>
                 <option *ngFor="let mh of monhoc" >{{mh.tenMon}}</option>								
                 </select>
-            </div>
+            </div> -->
 
   
         <div class="container-fluid" >

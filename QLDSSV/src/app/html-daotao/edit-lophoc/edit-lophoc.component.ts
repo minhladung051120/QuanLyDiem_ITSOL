@@ -66,7 +66,8 @@ export class EditLophocComponent implements OnInit {
     this.lophoc.giangvien = this.gvSelected;
     console.log(this.lophoc)
     this.servicesService.updateLopHoc(id,this.lophoc).subscribe(
-      data => {     
+      (data) => {  
+        console.log(data);   
         this.router.navigate(['/daotao/daotao-qllh']);
        },
        err => {
@@ -75,8 +76,8 @@ export class EditLophocComponent implements OnInit {
     )
   }
 
-  gotoList() {
-    this.router.navigate(['/daotao/daotao-qllh']);
-  }
+  // gotoList() {
+  //   this.router.navigate(['/daotao/daotao-qllh']);
+  // }
 
 }

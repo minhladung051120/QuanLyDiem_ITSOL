@@ -39,7 +39,7 @@ public class MonHocRepository{
 				monhoc mh = new monhoc();
 				mh.setMaMon(rs.getString(1));
 				mh.setTenMon(rs.getString(2));
-				mh.setMaKy(rs.getString(3));
+//				mh.setMaKy(rs.getString(3));
 				return mh;
 			}
 		});

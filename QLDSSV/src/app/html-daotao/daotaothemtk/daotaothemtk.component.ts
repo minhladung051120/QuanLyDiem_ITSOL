@@ -28,7 +28,7 @@ export class DaotaothemtkComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-  }
+  } 
   save() {
     this.taikhoan.chucVu="DT";
     this.servicesService.createTaiKhoanDt(this.taikhoan).subscribe(

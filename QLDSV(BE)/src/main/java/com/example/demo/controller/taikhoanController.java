@@ -48,8 +48,8 @@ public class taikhoanController {
 		return taiKhoanRepository.getTaiKhoanId(maTk);
 	}
 	
-	@GetMapping("/getTaiKhoanGvId/{id}")
-	public TaiKhoanDb getTaiKhoanGvId(@PathVariable(value = "id") String maTk) {
+	@GetMapping("/getTaiKhoanGvId/{maTk}")
+	public TaiKhoanDb getTaiKhoanGvId(@PathVariable(value = "maTk") String maTk) {
 		return taiKhoanRepository.getTaiKhoanGvId(maTk);
 	}
 	

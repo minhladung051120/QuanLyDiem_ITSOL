@@ -40,15 +40,15 @@ public class monhocController {
 		return monHocRepository.searchMonHoc(maMon);
 	}
 	
-	@PostMapping("/monHoc")
-	public void createMonHoc(@RequestBody monhoc monhoc) {
-		monHocRepository.createMonHoc(monhoc.getMaMon(), monhoc.getTenMon(), monhoc.getMaKy());
-	}
-	
-	@PutMapping("/updateMonHoc")
-	public void updateMonHoc(@RequestBody monhoc monhoc) {
-		monHocRepository.updateMonHoc(monhoc.getMaMon(), monhoc.getTenMon(), monhoc.getMaKy());
-	}
+//	@PostMapping("/monHoc")
+//	public void createMonHoc(@RequestBody monhoc monhoc) {
+//		monHocRepository.createMonHoc(monhoc.getMaMon(), monhoc.getTenMon(), monhoc.getMaKy());
+//	}
+//	
+//	@PutMapping("/updateMonHoc")
+//	public void updateMonHoc(@RequestBody monhoc monhoc) {
+//		monHocRepository.updateMonHoc(monhoc.getMaMon(), monhoc.getTenMon(), monhoc.getMaKy());
+//	}
 	
 	@DeleteMapping("/monHoc/{id}")
 	public void deleteMonHoc(@PathVariable(value = "id") String maMon){

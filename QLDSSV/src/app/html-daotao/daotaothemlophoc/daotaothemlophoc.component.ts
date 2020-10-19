@@ -16,7 +16,12 @@ import { GiangVien } from 'src/app/model/giangvien';
 export class DaotaothemlophocComponent implements OnInit {
 
 private baseUrl = 'http://localhost:8080/';
-
+form = new FormGroup({
+  malop: new FormControl('',Validators.required),
+  tenlop: new FormControl('', Validators.required),
+  tengv: new FormControl('', Validators.required),
+  mamonhoc: new FormControl('', Validators.required),
+})
 
   lophoc: lopHoc = new lopHoc();
   monhoc: monHoc[];

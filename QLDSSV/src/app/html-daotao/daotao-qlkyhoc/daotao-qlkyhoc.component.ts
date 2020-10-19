@@ -32,4 +32,9 @@ export class DaotaoQlkyhocComponent implements OnInit {
  })
 }
 
+clickMethod(name: string) {
+  if(confirm("Bạn chắc chắn muốn xóa? "+name)) {
+      this.deleteKyHoc(name);
+  }
+}
 }
