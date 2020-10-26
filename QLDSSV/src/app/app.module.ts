@@ -44,6 +44,7 @@ import { DaotaothemtkgvComponent } from './html-daotao/daotaothemtkgv/daotaothem
 import { DaotaothemtksvComponent } from './html-daotao/daotaothemtksv/daotaothemtksv.component';
 import { EditTaikhoanGVComponent } from './html-daotao/edit-taikhoan-gv/edit-taikhoan-gv.component';
 import { EditTaikhoanSVComponent } from './html-daotao/edit-taikhoan-sv/edit-taikhoan-sv.component';
+import { EditSVComponent } from './html-daotao/edit-sv/edit-sv.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { EditTaikhoanSVComponent } from './html-daotao/edit-taikhoan-sv/edit-tai
     HomegvComponent,
     EditTaikhoanGVComponent,
     EditTaikhoanSVComponent,
+    EditSVComponent,
 
     
   ],

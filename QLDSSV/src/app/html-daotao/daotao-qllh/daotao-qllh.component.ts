@@ -46,9 +46,11 @@ export class DaotaoQllhComponent implements OnInit {
    this.getLopHocId(maLop)
     this.servicesService.deleteLopHoc(maLop,this.lophoc).subscribe(
       data => {     
+        this.lopHoc();
         this.router.navigate(['/daotao/daotao-qllh']);
        },
        err => {
+        console.log("hello cc")
         console.log(err)
        },
     )

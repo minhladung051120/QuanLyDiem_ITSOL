@@ -50,6 +50,7 @@ export class EditLophocComponent implements OnInit {
   }
   onMhSelected(val: monHoc){
     this.mhSelected = val;
+    console.log(val.maMon)
   }
   getLopHocId() {
     this.activate.params.subscribe((param) => {

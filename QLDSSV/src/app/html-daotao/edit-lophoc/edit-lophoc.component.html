@@ -30,7 +30,7 @@
                 <label>Tên môn học</label>
 												<select [(ngModel)]="mhSelected" (ngModelChange)="onMhSelected($event)"  class="form-control select" name="monhoc">
                         <option [ngValue]="null" selected>Lựa chọn</option>
-                        <option *ngFor="let mh of monhoc" >{{mh.tenMon}}</option>								
+                        <option *ngFor="let mh of monhoc" [ngValue]= "mh">{{mh.tenMon}}</option>								
 												</select>
               </div>
             </div>

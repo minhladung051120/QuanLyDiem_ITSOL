@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.ExcelLophoc;
 import com.example.demo.dto.ExcelSinhvien;
 import com.example.demo.dto.LopHoc;
+import com.example.demo.dto.Message;
 import com.example.demo.dto.SinhVien;
 import com.example.demo.model.bangdiem;
 import com.example.demo.model.giangvien;
@@ -89,14 +91,15 @@ public class lophocController {
 		if(!lopHocRepository.existsById(id)) {
 			return new ResponseEntity("Không tồn tại", HttpStatus.NOT_FOUND);
 		}
-		
+		System.out.println(id);
+		System.out.println(lophoc.getTenLop());
 		lophoc lop = lopHocRepository.getOne(id);
 		lop.setGiangvien(lophoc.getGiangvien());
 		lop.setTenLop(lophoc.getTenLop());
 		lop.setMaMonHoc(lophoc.getMaMonHoc());
 		lopHocRepository.save(lop);
 		
-		return new ResponseEntity("Cập nhật thành công", HttpStatus.OK);
+		return new ResponseEntity(new Message("Cập nhật thành công"), HttpStatus.OK);
 	}
 	
 	@PostMapping("/joinSinhVien")
@@ -105,15 +108,15 @@ public class lophocController {
 	}
 
 	@PutMapping("/updateAlive/{maLop}")
-	public ResponseEntity<?> updateAlive(@PathVariable("maLop")String maLop, @RequestBody lophoc lophoc){
+	public ResponseEntity<?> updateAlive(@PathVariable("maLop")String maLop, @RequestBody(required = false) lophoc lophoc){
 		System.out.println(maLop);
 
-		
 		lophoc lop = lopHocRepository.getOne(maLop);
+		System.out.println(lop.getTenLop());
 		lop.setAlive(false);
 		lopHocRepository.save(lop);
-		
-		return new ResponseEntity("Cập nhật thành công", HttpStatus.OK);
+		System.out.println(lop.isAlive());
+		return new ResponseEntity(new Message("Cập nhật thành công"), HttpStatus.OK);
 	}
 	
 	@GetMapping("export/lophoc")
@@ -123,7 +126,7 @@ public class lophocController {
 //		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
 //		String currentDatetime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=sinhvien.xlsx";
+		String headerValue = "attachment; filename= sinhvien.xlsx";
 		response.setHeader(headerKey, headerValue);
 		
 		List<LopHoc> lophoc = lopHocRepository.getLopHoc();

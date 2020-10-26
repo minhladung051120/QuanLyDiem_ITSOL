@@ -36,7 +36,7 @@ export class ServicesService {
   }
 
   getTaiKhoanGvId(maTk : number):Observable<any>{
-    return this.http.get(this.baseUrl+"getTaiKhoanGvId/"+maTk);
+    return this.http.get(this.baseUrl+"getTaiKhoanGvId/"+ maTk);
   }
 
   getTaiKhoanSvId(maTk : number):Observable<any>{
